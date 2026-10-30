@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CalorieFoodie</title>
+  <meta name="description" content="Find restaurants within 10 miles of any US zip code." />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  </div>
+
+  <main class="app">
+    <header class="glass header">
+      <h1>CalorieFoodie</h1>
+      <p class="subtitle">Restaurants within 10 miles of any zip code</p>
+
+      <form id="search" class="search" autocomplete="off">
+        <input id="zip" type="text" inputmode="numeric" pattern="\d{5}" maxlength="5"
+               placeholder="Zip code" aria-label="Zip code" value="32771" />
+        <button type="submit" class="btn primary">Search</button>
+        <button type="button" id="locate" class="btn icon" title="Use my location" aria-label="Use my location">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm9 3h-2.07A7 7 0 0 0 13 5.07V3h-2v2.07A7 7 0 0 0 5.07 11H3v2h2.07A7 7 0 0 0 11 18.93V21h2v-2.07A7 7 0 0 0 18.93 13H21v-2Zm-9 6a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z"/></svg>
+        </button>
+      </form>
+
+      <div class="chips" id="chips">
+        <button class="chip active" data-type="all">All</button>
+        <button class="chip" data-type="restaurant">Restaurants</button>
+        <button class="chip" data-type="fast_food">Fast Food</button>
+        <button class="chip" data-type="cafe">Cafés</button>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="glass map-wrap"><div id="map"></div></div>
+
+      <div class="glass list-wrap">
+        <div class="list-head">
+          <h2 id="place">Sanford, FL</h2>
+          <span id="count" class="count"></span>
+        </div>
+        <p id="status" class="status">Loading…</p>
+        <ul id="list" class="list"></ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors ·
+      Zip lookup by <a href="https://zippopotam.us" target="_blank" rel="noopener">Zippopotam.us</a>
+    </footer>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
